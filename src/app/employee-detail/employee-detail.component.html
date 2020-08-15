@@ -1,0 +1,36 @@
+<div id="employeeDetail" *ngIf="employee">
+
+  <h2>Details: {{employee.first_name}} {{employee.last_name}}</h2>
+
+  <div *ngIf="employee.gender === 'female'; else maleIcon"><img class="genderIcon" src="/assets/female.png" alt="female"
+      height=150px></div>
+  <ng-template #maleIcon><img class="genderIcon" src="/assets/male.png" alt="male" height=150px></ng-template>
+  <br><br>
+  <table>
+    <tr>
+      <td><b>Name:</b></td>
+      <td>{{employee.first_name}} {{employee.last_name}}</td>
+    </tr>
+    <tr>
+      <td><b>ID:</b></td>
+      <td>{{employee.id}}</td>
+    </tr>
+    <tr>
+      <td><b>Department:</b></td>
+      <a routerLink="/departmentDetail/{{employee.department_id}}">
+        <td>{{employee.department_name}}</td>
+      </a>
+    </tr>
+    <tr>
+      <td><b>Birth Date:</b></td>
+      <td>{{employee.birth_date}}</td>
+    </tr>
+    <tr>
+      <td><b>Position:</b></td>
+      <td>{{employee.position}}</td>
+    </tr>
+  </table>
+
+  <button (click)="goBack()">back</button>
+  <button id="editButton" routerLink="/employeeEdit/{{employee.id}}">Edit</button>
+</div>

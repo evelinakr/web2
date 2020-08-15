@@ -1,0 +1,75 @@
+<div id="departmentsList">
+
+  <br><br>
+  <h1>Department</h1>
+  <table matSort (matSortChange)="sortData($event)" matSortActive="id" matSortDirection="asc" matSortDisableClear>
+    <tr>
+      <th style="width: 50px;" mat-sort-header="id">ID</th>
+      <th style="width: 100px;" mat-sort-header="name">Name</th>
+      <th mat-sort-header="building">Building</th>
+      <th>Employees</th>
+      <th style="width: 150px;"></th>
+    </tr>
+    <ng-container *ngIf="sorted">
+      <tr *ngFor="let department of sortedDepartments">
+        <td>
+          {{department.id}}
+        </td>
+        <td style="padding: 10px;">
+          <a routerLink="/departmentDetail/{{department.id}}">
+            <b>{{department.name}}</b>
+          </a>
+        </td>
+        <td>
+          {{department.building}}
+        </td>
+        <td>
+          {{department.employeesByName}}
+        </td>
+
+        <td>
+          <div class="buttonContainer">
+            <a routerLink="/departmentDetail/{{department.id}}"><button>Details</button></a>
+            <button id="editButton" routerLink="/departmentEdit/{{department.id}}">Edit</button>
+            <button title="delete task" (click)="delete(department)">Delete</button>
+          </div>
+        </td>
+      </tr>
+    </ng-container>
+    <ng-container *ngIf="!sorted">
+      <tr *ngFor="let department of departments">
+        <td>
+          {{department.id}}
+        </td>
+        <td style="padding: 10px;">
+          <a routerLink="/departmentDetail/{{department.id}}">
+            <b>{{department.name}}</b>
+          </a>
+        </td>
+        <td>
+          {{department.building}}
+        </td>
+        <td>
+          {{department.employeesByName}}
+        </td>
+
+        <td>
+          <div class="buttonContainer">
+            <a routerLink="/departmentDetail/{{department.id}}"><button>Details</button></a>
+            <button id="editButton" routerLink="/departmentEdit/{{department.id}}">Edit</button>
+            <button title="delete task" (click)="delete(department)">Delete</button>
+          </div>
+        </td>
+      </tr>
+    </ng-container>
+  </table>
+  <br>
+  <div class="addNewDepartment">
+    <label>Department name:
+      <input #departmentName />
+    </label>
+    <!-- (click) passes input value to add() and then clears the input -->
+    <button (click)="add(departmentName.value); departmentName.value=''">
+      add
+    </button>
+  </div>

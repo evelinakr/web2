@@ -1,0 +1,13 @@
+<div id="search-component">
+  <label for="search-box">Task Search</label>
+  <br>
+  <input #searchBox id="search-box" (input)="search(searchBox.value)" />
+
+  <ul class="search-result">
+    <li *ngFor="let task of tasks$ | async">
+      <a routerLink="/taskDetail/{{task.id}}">
+        {{task.name}}
+      </a>
+    </li>
+  </ul>
+</div>

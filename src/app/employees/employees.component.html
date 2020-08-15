@@ -1,0 +1,86 @@
+<div id="employeesList">
+
+  <br><br>
+  <h1>Employees</h1>
+  <table matSort (matSortChange)="sortData($event)" matSortActive="id" matSortDirection="asc" matSortDisableClear>
+
+    <tr>
+      <th style="width: 50px;" mat-sort-header="id">ID</th>
+      <th style="width: 150px;" mat-sort-header="name">Name</th>
+      <th style="width: 150px;">Birth Date</th>
+      <th mat-sort-header="department">Department</th>
+      <th mat-sort-header="position">Position</th>
+      <th style="width: 200px"></th>
+    </tr>
+    <ng-container *ngIf="sorted"></ng-container>
+    <tr *ngFor="let employee of sortedEmployees">
+      <td>
+        {{employee.id}}
+      </td>
+      <td style="padding: 10px;">
+        <a routerLink="/employeeDetail/{{employee.id}}">
+          <b>{{employee.first_name}} {{employee.last_name}}</b>
+        </a>
+      </td>
+      <td>
+        {{employee.birth_date}}
+      </td>
+      <td>
+        <a routerLink="/departmentDetail/{{employee.department_id}}">
+          {{employee.department_name}}
+        </a>
+      </td>
+      <td>
+        {{employee.position}}
+      </td>
+      <td>
+        <div class="buttonContainer">
+          <a routerLink="/employeeDetail/{{employee.id}}"><button>Details</button></a>
+          <button id="editButton" routerLink="/employeeEdit/{{employee.id}}">Edit</button>
+          <button title="delete task" (click)="delete(employee)">Delete</button>
+        </div>
+      </td>
+    </tr>
+    <ng-container *ngIf="!sorted">
+      <tr *ngFor="let employee of employees">
+        <td>
+          {{employee.id}}
+        </td>
+        <td style="padding: 10px;">
+          <a routerLink="/employeeDetail/{{employee.id}}">
+            <b>{{employee.first_name}} {{employee.last_name}}</b>
+          </a>
+        </td>
+        <td>
+          {{employee.birth_date}}
+        </td>
+        <td>
+          <a routerLink="/departmentDetail/{{employee.department_id}}">
+            {{employee.department_name}}
+          </a>
+        </td>
+        <td>
+          {{employee.position}}
+        </td>
+        <td>
+          <div class="buttonContainer">
+            <a routerLink="/employeeDetail/{{employee.id}}"><button>Details</button></a>
+            <button id="editButton" routerLink="/employeeEdit/{{employee.id}}">Edit</button>
+            <button title="delete task" (click)="delete(employee)">Delete</button>
+          </div>
+        </td>
+      </tr>
+    </ng-container>
+  </table>
+
+  <br>
+
+  <div class="addNewEmployee">
+    <label>Employee name:
+      <input #employeeName />
+    </label>
+    <!-- (click) passes input value to add() and then clears the input -->
+    <button (click)="add(employeeName.value); employeeName.value=''">
+      add
+    </button>
+  </div>

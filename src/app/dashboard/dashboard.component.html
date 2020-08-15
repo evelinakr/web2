@@ -1,0 +1,46 @@
+<br>
+<div id="dashboard">
+  <div id="tables">
+    <table>
+      <tr>
+        <th>Tasks</th>
+      </tr>
+      <tr *ngFor="let task of tasks">
+        <td><a routerLink="/taskDetail/{{task.id}}">{{task.name}}</a></td>
+      </tr>
+    </table>
+    <table>
+      <tr>
+        <th>Departments</th>
+      </tr>
+      <tr *ngFor="let department of departments">
+        <td><a routerLink="/departmentDetail/{{department.id}}">{{department.name}}</a></td>
+      </tr>
+    </table>
+    <table>
+      <tr>
+        <th>Employees</th>
+      </tr>
+      <tr *ngFor="let employee of employees">
+        <td><a routerLink="/employeeDetail/{{employee.id}}">{{employee.first_name}} {{employee.last_name}}</a></td>
+      </tr>
+    </table>
+  </div>
+  <div class="dashboardSearch">
+    <h2>Search</h2>
+    <app-department-search></app-department-search>
+    <app-employee-search></app-employee-search>
+    <br><br>
+    <div class="addNewTask">
+      <label for="addNewTask">Add new task</label>
+      <br>
+      <input #taskName id="addNewTask" />
+      <!-- (click) passes input value to add() and then clears the input -->
+      <button (click)="add(taskName.value); taskName.value=''">
+        add
+      </button>
+    </div>
+  </div>
+
+</div>
+<img id="fontys" src="/assets/fontys.jpg" alt="fontys" height=320px>

@@ -1,0 +1,87 @@
+#taskEdit {
+  margin: 15pt;
+}
+
+table {
+  border: 2px solid #663366;
+  max-width: 35%;
+}
+
+td {
+  padding: 5px;
+  vertical-align: top;
+  text-align: left;
+}
+
+button {
+  font-family: sans-serif;
+  font-size: 15px;
+  background-color: #663366;
+  border: none;
+  color: white;
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+  width: 100px;
+  padding: 5px;
+  margin: 15px;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.taskIcon {
+  margin-left: 50px;
+}
+
+::ng-deep .mat-focused .mat-form-field-label {
+  /*change color of label*/
+  color: black !important;
+}
+
+::ng-deep.mat-form-field-underline {
+  /*change color of underline*/
+  background-color: #663366 !important;
+}
+
+::ng-deep.mat-form-field-ripple {
+  /*change color of underline when focused*/
+  background-color: #663366 !important;
+  ;
+}
+
+::ng-deep .mat-form-field-label {
+  /*change color of label*/
+  color: black !important;
+}
+
+mat-datepicker-toggle {
+  color: #663366 !important;
+}
+
+li {
+  border-bottom: 1px solid gray;
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+  width: 195px;
+  height: 16px;
+  padding: 5px;
+  background-color: white;
+  cursor: pointer;
+  list-style-type: none;
+}
+
+li:hover {
+  background-color: #607D8B;
+}
+
+#search-box {
+  width: 200px;
+  height: 20px;
+}
+
+ul.search-result {
+  margin-top: 0;
+  padding-left: 0;
+}

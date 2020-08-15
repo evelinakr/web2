@@ -1,0 +1,94 @@
+<div id="tasksList">
+  <br><br>
+  <h1>Tasks</h1>
+  <table matSort (matSortChange)="sortData($event)" matSortActive="id" matSortDirection="asc" matSortDisableClear>
+    <tr>
+      <th style="width: 50px;" mat-sort-header="id">ID</th>
+      <th style="width: 100px;" mat-sort-header="name">Name</th>
+      <th style="width: 100px;" mat-sort-header="department">Department</th>
+      <th style="width: 100px;">Employees</th>
+      <th style="width: 150px;">Due Date</th>
+      <th>Description</th>
+      <th>Action</th>
+    </tr>
+    <ng-container *ngIf="sorted">
+      <tr *ngFor="let task of sortedTasks">
+        <td>
+          {{task.id}}
+        </td>
+        <td style="padding: 10px;">
+          <a routerLink="/taskDetail/{{task.id}}">
+            <div class="module task">
+              <b>{{task.name}}</b>
+            </div>
+          </a>
+        </td>
+        <td>
+          <a routerLink="/departmentDetail/{{task.department_id}}">
+            {{task.department_name}}
+          </a>
+        </td>
+        <td>
+          {{task.employeesByName}}
+        </td>
+        <td>
+          {{task.due_date}}
+        </td>
+        <td>
+          {{task.description}}
+        </td>
+        <td>
+          <div class="buttonContainer">
+            <button id="detailsButton" routerLink="/taskDetail/{{task.id}}">Details</button>
+            <button id="editButton" routerLink="/taskEdit/{{task.id}}">Edit</button>
+            <button title="delete task" (click)="delete(task)">Delete</button>
+          </div>
+        </td>
+      </tr>
+    </ng-container>
+    <ng-container *ngIf="!sorted">
+      <tr *ngFor="let task of tasks">
+        <td>
+          {{task.id}}
+        </td>
+        <td style="padding: 10px;">
+          <a routerLink="/taskDetail/{{task.id}}">
+            <div class="module task">
+              <b>{{task.name}}</b>
+            </div>
+          </a>
+        </td>
+        <td>
+          <a routerLink="/departmentDetail/{{task.department_id}}">
+            {{task.department_name}}
+          </a>
+        </td>
+        <td>
+          {{task.employeesByName}}
+        </td>
+        <td>
+          {{task.due_date}}
+        </td>
+        <td>
+          {{task.description}}
+        </td>
+        <td>
+          <div class="buttonContainer">
+            <button id="detailsButton" routerLink="/taskDetail/{{task.id}}">Details</button>
+            <button id="editButton" routerLink="/taskEdit/{{task.id}}">Edit</button>
+            <button title="delete task" (click)="delete(task)">Delete</button>
+          </div>
+        </td>
+      </tr>
+    </ng-container>
+  </table>
+  <br>
+  <div class="addNewTask">
+    <label>Task name:
+      <input #taskName />
+    </label>
+    <!-- (click) passes input value to add() and then clears the input -->
+    <button (click)="add(taskName.value); taskName.value=''">
+      add
+    </button>
+  </div>

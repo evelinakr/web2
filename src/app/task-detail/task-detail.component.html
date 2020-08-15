@@ -1,0 +1,30 @@
+
+  <div id="taskDetail" *ngIf="task">
+  <h2>Details: {{task.name}}</h2>
+  <img class="taskIcon" src="/assets/task.png" alt="task" height=150px>
+  <br><br>
+  <table>
+    <tr>
+      <td><b>Name:</b></td>
+      <td>{{task.name}}</td>
+    </tr>
+    <tr>
+      <td><b>ID:</b></td>
+      <td>{{task.id}}</td>
+    </tr>
+    <tr>
+      <td><b>Department:</b></td>
+      <td>{{task.department_name}}</td>
+    </tr>
+    <tr>
+      <td><b>Due Date:</b></td>
+      <td>{{task.due_date}}</td>
+    </tr>
+    <tr>
+      <td><b>Description:</b></td>
+      <td>{{task.description}}</td>
+    </tr>
+  </table>
+  <button (click)="goBack()">Back</button>
+  <button id="editButton" routerLink="/taskEdit/{{task.id}}">Edit</button>
+</div>

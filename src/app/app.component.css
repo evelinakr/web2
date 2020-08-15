@@ -1,0 +1,36 @@
+nav {
+  background-color: #663366;
+  top: 3px;
+  padding: 0px;
+}
+
+nav a {
+  padding: 15px;
+  text-decoration: none;
+  color: white;
+  display: inline-block;
+}
+
+nav a:visited, a:link {
+  color: white;
+}
+
+nav a:hover {
+  color: #333;
+}
+
+nav a.active {
+  color: #039be5;
+}
+
+footer {
+  background-color: #663366;
+  color: white;
+  text-align: center;
+  padding: 0px;
+  margin-top: 50px;
+}
+
+a {
+  text-decoration: none;
+}

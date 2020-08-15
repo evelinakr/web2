@@ -1,0 +1,80 @@
+h1 {
+  color: black;
+  margin-left: 46%;
+}
+
+li {
+  position: relative;
+  cursor: pointer;
+  background-color: #EEE;
+  margin: .5em;
+  padding: .3em 0;
+  height: 1.6em;
+  border-radius: 4px;
+}
+
+li:hover {
+  color: #607D8B;
+  background-color: #DDD;
+  left: .1em;
+}
+
+a {
+  color: #333;
+  text-decoration: none;
+  position: relative;
+  display: block;
+  white-space: nowrap;
+}
+
+a:hover {
+  color: #663366;
+}
+
+button {
+  background-color: #663366;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  cursor: hand;
+  font-family: Arial;
+  margin: 5px;
+}
+
+button:hover {
+  background-color: #cfd8dc;
+}
+
+table {
+  border: 2px solid #663366;
+  max-width: 90%;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+th {
+  border: 2px solid #663366;
+  padding: 7px;
+  text-align: center;
+  background-color: #663366;
+  color: white;
+}
+
+td {
+  border: 1px solid black;
+  padding: 5px;
+  text-align: center;
+}
+
+.buttonContainer {
+  display: inline-flex;
+  white-space: nowrap;
+  align-items: center;
+}
+
+.addNewTask {
+  margin-left: 40%;
+}

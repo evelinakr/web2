@@ -1,0 +1,21 @@
+table {
+  display: inline-block;
+  border: 2px solid #663366;
+  border-collapse: collapse;
+  margin: 20px;
+  vertical-align: top;
+  border-spacing: 0px;
+}
+
+th {
+  padding: 7px;
+  text-align: center;
+  background-color: #663366;
+  color: white;
+}
+
+td {
+  padding: 10px;
+  text-align: center;
+  vertical-align: top;
+}

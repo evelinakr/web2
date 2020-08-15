@@ -1,0 +1,39 @@
+<div id="employeeEdit" *ngIf="employee">
+
+    <h2>Details: {{employee.first_name}} {{employee.last_name}}</h2>
+
+    <div *ngIf="employee.gender === 'female'; else maleIcon"><img class="genderIcon" src="/assets/female.png"
+            alt="female" height=150px></div>
+    <ng-template #maleIcon><img class="genderIcon" src="/assets/male.png" alt="male" height=150px></ng-template>
+    <br><br>
+    <table>
+        <tr>
+            <td><b>Name:</b></td>
+            <td><input size=10px [(ngModel)]="employee.first_name" placeholder="first_name" /><input size=10px
+                    [(ngModel)]="employee.last_name" placeholder="last_name" /></td>
+        </tr>
+        <tr>
+            <td><b>ID:</b></td>
+            <td>{{employee.id}}</td>
+        </tr>
+        <tr>
+            <td><b>Department:</b></td>
+            <td>
+                <select [ngModel]="selectedDepartment" (ngModelChange)="onChange($event)">
+                    <option *ngFor="let department of departments" [ngValue]="department">{{department.name}}</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td><b>Birth Date:</b></td>
+            <td>{{employee.birth_date}}</td>
+        </tr>
+        <tr>
+            <td><b>Position:</b></td>
+            <td><input [(ngModel)]="employee.position" placeholder="position" /></td>
+        </tr>
+    </table>
+
+    <button (click)="goBack()">back</button>
+    <button (click)="save()">save</button>
+</div>

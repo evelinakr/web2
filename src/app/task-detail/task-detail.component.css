@@ -1,0 +1,36 @@
+#taskDetail {
+  margin: 15pt;
+}
+
+table {
+  border: 2px solid #663366;
+  max-width: 35%;
+}
+
+td {
+  padding: 5px;
+  vertical-align: top;
+  text-align: left;
+}
+
+button {
+  font-family: sans-serif;
+  font-size: 15px;
+  background-color: #663366;
+  border: none;
+  color: white;
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+  width: 100px;
+  padding: 5px;
+  margin: 15px;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.taskIcon {
+  margin-left: 50px;
+}

@@ -1,0 +1,21 @@
+<div id="departmentEdit" *ngIf="department">
+  <h2>Details: {{department.name}}</h2>
+  <img class="departmentIcon" src="/assets/department.png" alt="department" height=150px>
+  <br><br>
+  <table>
+    <tr>
+      <td><b>Name</b></td>
+      <td><input [(ngModel)]="department.name" placeholder="name" /></td>
+    </tr>
+    <tr>
+      <td><b>ID</b></td>
+      <td>{{department.id}}</td>
+    </tr>
+    <tr>
+      <td><b>Building</b></td>
+      <td><input [(ngModel)]="department.building" placeholder="building" /></td>
+    </tr>
+  </table>
+  <button (click)="goBack()">back</button>
+  <button (click)="save()">save</button>
+</div>

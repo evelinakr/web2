@@ -1,0 +1,40 @@
+<div id="taskEdit" *ngIf="task">
+  <h2>Details: {{task.name}}</h2>
+  <img class="taskIcon" src="/assets/task.png" alt="task" height=150px>
+  <br><br>
+  <table>
+    <tr>
+      <td><b>Name:</b></td>
+      <td><input [(ngModel)]="task.name" placeholder="name" /></td>
+    </tr>
+    <tr>
+      <td><b>ID:</b></td>
+      <td>{{task.id}}</td>
+    </tr>
+    <tr>
+      <td><b>Department:</b></td>
+      <td>
+        <select [ngModel]="selectedDepartment" (ngModelChange)="onChange($event)">
+          <option *ngFor="let department of departments" [ngValue]="department">{{department.name}}</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td><br><b>Due Date:</b></td>
+      <td>
+        <mat-form-field>
+          <input matInput [matDatepicker]="picker" [(ngModel)]="task.due_date" placeholder="{{task.due_date}}">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </td>
+    </tr>
+    <tr>
+      <td><b>Description:</b></td>
+      <td><textarea style="width: 350px;" [(ngModel)]="task.description" placeholder="description" rows="4"></textarea>
+      </td>
+    </tr>
+  </table>
+  <button (click)="goBack()">back</button>
+  <button (click)="save()">save</button>
+</div>

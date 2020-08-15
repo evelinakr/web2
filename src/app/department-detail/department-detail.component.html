@@ -1,0 +1,21 @@
+<div id="departmentDetail" *ngIf="department">
+  <h2>Details: {{department.name}}</h2>
+  <img class="departmentIcon" src="/assets/department.png" alt="department" height=150px>
+  <br><br>
+  <table>
+    <tr>
+      <td><b>Name</b></td>
+      <td>{{department.name}}</td>
+    </tr>
+    <tr>
+      <td><b>ID</b></td>
+      <td>{{department.id}}</td>
+    </tr>
+    <tr>
+      <td><b>Building</b></td>
+      <td>{{department.building}}</td>
+    </tr>
+  </table>
+  <button (click)="goBack()">Back</button>
+  <button id="editButton" routerLink="/departmentEdit/{{department.id}}">Edit</button>
+</div>
